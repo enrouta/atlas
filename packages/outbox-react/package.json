@@ -1,0 +1,58 @@
+{
+  "name": "@enrouta/outbox-react",
+  "version": "0.1.0",
+  "description": "React binding for @enrouta/outbox — a headless hook for the offline send queue.",
+  "license": "MIT",
+  "author": "EnRouta <info@enrouta.com>",
+  "keywords": [
+    "outbox",
+    "react",
+    "offline",
+    "queue",
+    "retry",
+    "hook"
+  ],
+  "homepage": "https://github.com/enrouta/atlas/tree/main/packages/outbox-react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enrouta/atlas.git",
+    "directory": "packages/outbox-react"
+  },
+  "bugs": {
+    "url": "https://github.com/enrouta/atlas/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@enrouta/outbox": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "react": "^18.3.1"
+  }
+}

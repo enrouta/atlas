@@ -1,0 +1,85 @@
+{
+  "name": "@enrouta/spatial",
+  "version": "0.1.0",
+  "description": "Framework-agnostic spatial-intelligence primitives: influence models, propagation, aggregation, H3, proximity, and zone partitioning.",
+  "license": "Apache-2.0",
+  "author": "EnRouta <info@enrouta.com>",
+  "keywords": [
+    "enrouta",
+    "spatial",
+    "spatial-intelligence",
+    "h3",
+    "geospatial",
+    "influence",
+    "propagation",
+    "geojson"
+  ],
+  "homepage": "https://github.com/enrouta/atlas/tree/main/packages/spatial#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enrouta/atlas.git",
+    "directory": "packages/spatial"
+  },
+  "bugs": {
+    "url": "https://github.com/enrouta/atlas/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./models": {
+      "types": "./dist/models/index.d.ts",
+      "import": "./dist/models/index.js",
+      "require": "./dist/models/index.cjs"
+    },
+    "./propagation": {
+      "types": "./dist/propagation/index.d.ts",
+      "import": "./dist/propagation/index.js",
+      "require": "./dist/propagation/index.cjs"
+    },
+    "./aggregation": {
+      "types": "./dist/aggregation/index.d.ts",
+      "import": "./dist/aggregation/index.js",
+      "require": "./dist/aggregation/index.cjs"
+    },
+    "./h3": {
+      "types": "./dist/h3/index.d.ts",
+      "import": "./dist/h3/index.js",
+      "require": "./dist/h3/index.cjs"
+    },
+    "./proximity": {
+      "types": "./dist/proximity/index.d.ts",
+      "import": "./dist/proximity/index.js",
+      "require": "./dist/proximity/index.cjs"
+    },
+    "./partition": {
+      "types": "./dist/partition/index.d.ts",
+      "import": "./dist/partition/index.js",
+      "require": "./dist/partition/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@types/geojson": "^7946.0.14",
+    "h3-js": "^4.4.0"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "@enrouta/types",
+  "version": "0.1.0",
+  "description": "Shared domain contracts for the EnRouta spatial-safety platform.",
+  "license": "MIT",
+  "author": "EnRouta <info@enrouta.com>",
+  "keywords": [
+    "enrouta",
+    "types",
+    "typescript",
+    "spatial",
+    "safety",
+    "geospatial"
+  ],
+  "homepage": "https://github.com/enrouta/atlas/tree/main/packages/types#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enrouta/atlas.git",
+    "directory": "packages/types"
+  },
+  "bugs": {
+    "url": "https://github.com/enrouta/atlas/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  }
+}

@@ -1,0 +1,6 @@
+# Official and vendored license texts
+LICENSE
+**/LICENSE
+
+# Build output
+dist/
