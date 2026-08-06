@@ -5,3 +5,5 @@ coverage/
 *.tsbuildinfo
 .turbo/
 .DS_Store
+
+CLAUDE.*.md
