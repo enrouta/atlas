@@ -1,0 +1,12 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@enrouta/outbox": "0.0.0",
+    "@enrouta/outbox-react": "0.0.0",
+    "@enrouta/spatial": "0.0.0",
+    "@enrouta/spatial-viz": "0.0.0",
+    "@enrouta/types": "0.0.0"
+  },
+  "changesets": []
+}

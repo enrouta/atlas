@@ -1,6 +1,6 @@
 {
   "name": "@enrouta/outbox",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Framework-agnostic offline send queue: persist, retry, and classify failed submissions. Bring your own storage and transport.",
   "license": "MIT",
   "author": "EnRouta <info@enrouta.com>",

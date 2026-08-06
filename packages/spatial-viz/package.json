@@ -1,6 +1,6 @@
 {
   "name": "@enrouta/spatial-viz",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Framework-agnostic helpers to turn EnRouta risk cells into GeoJSON for map rendering.",
   "license": "MIT",
   "author": "EnRouta <info@enrouta.com>",

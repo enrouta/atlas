@@ -1,6 +1,6 @@
 {
   "name": "@enrouta/outbox-react",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "React binding for @enrouta/outbox — a headless hook for the offline send queue.",
   "license": "MIT",
   "author": "EnRouta <info@enrouta.com>",

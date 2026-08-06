@@ -1,6 +1,6 @@
 {
   "name": "@enrouta/spatial",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Framework-agnostic spatial-intelligence primitives: influence models, propagation, aggregation, H3, proximity, and zone partitioning.",
   "license": "Apache-2.0",
   "author": "EnRouta <info@enrouta.com>",
