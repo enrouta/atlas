@@ -33,7 +33,7 @@ jobs:
         with:
           path-to-signatures: 'signatures/cla.json'
           path-to-document: 'https://github.com/enrouta/atlas/blob/main/CLA.md'
-          branch: 'main'
-          allowlist: 'dependabot[bot],renovate[bot]'
+          branch: 'cla-signatures'
+          allowlist: 'ymansfarroll,dependabot[bot],renovate[bot]'
           custom-pr-sign-comment: 'I have read and agree to the EnRouta Contributor License Agreement.'
           custom-allsigned-prcomment: 'All contributors have signed the CLA — thank you!'
