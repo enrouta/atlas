@@ -18,6 +18,8 @@ export interface OutboxItem<T> {
   queuedAt: number;
   /** Last failure message, for a rejected item's notice. */
   lastError?: string;
+  idempotencyKey?: string;
+
 }
 
 /** Persistence adapter — bring your own (AsyncStorage, localStorage, etc.). */
@@ -36,7 +38,7 @@ export interface OutboxConfig<T, R> {
   /** Where the pending queue is persisted. */
   storage: OutboxStorage;
   /** The transport — the actual send (e.g. an HTTP POST). */
-  send: (payload: T) => Promise<R>;
+  send: (payload: T, meta?: { idempotencyKey?: string }) => Promise<R>;
   /** How a failed send is classified. Defaults to {@link classifyHttpError}. */
   classifyError?: (error: unknown) => ErrorClass;
   /** Background retry cadence in ms. Default 15000. */
@@ -49,6 +51,8 @@ export interface OutboxConfig<T, R> {
   now?: () => number;
   /** Id generator, for testability. */
   id?: () => string;
+    idempotencyKey?: () => string;
+
 }
 
 export interface Outbox<T, R> {
@@ -95,6 +99,7 @@ export function createOutbox<T, R>(config: OutboxConfig<T, R>): Outbox<T, R> {
     onResult,
     now = () => Date.now(),
     id = defaultId,
+     idempotencyKey,
   } = config;
 
   let items: OutboxItem<T>[] = [];
@@ -124,8 +129,8 @@ export function createOutbox<T, R>(config: OutboxConfig<T, R>): Outbox<T, R> {
     if (sending.has(item.id)) return;
     sending.add(item.id);
     try {
-      await (inFlight ?? send(item.payload));
-      setItems(items.filter((i) => i.id !== item.id)); // landed → leave the queue
+      await (inFlight ?? send(item.payload, { idempotencyKey: item.idempotencyKey })); 
+      setItems(items.filter((i) => i.id !== item.id));
       onResult?.({ kind: 'recovered', item });
     } catch (error) {
       const klass = classifyError(error);
@@ -154,6 +159,7 @@ export function createOutbox<T, R>(config: OutboxConfig<T, R>): Outbox<T, R> {
       status: 'pending',
       attempts: 0,
       queuedAt: now(),
+      ...(idempotencyKey ? { idempotencyKey: idempotencyKey() } : {}),
     };
     setItems([item, ...items]);
     return item;
@@ -164,7 +170,6 @@ export function createOutbox<T, R>(config: OutboxConfig<T, R>): Outbox<T, R> {
       if (item.status === 'pending') void run(item);
     }
   }
-
   async function hydrate(): Promise<void> {
     try {
       const raw = await storage.load();
