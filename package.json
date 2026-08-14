@@ -20,6 +20,8 @@
   "scripts": {
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "clean": "pnpm -r clean",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
   }
 }
